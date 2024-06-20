@@ -1,0 +1,39 @@
+    /* Example styles for About Us page */
+
+.about-us-page {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+  }
+  
+  .about-section, .mission-section, .what-sets-us-apart-section, .visit-us-section, .contact-us-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+  }
+  
+  .about-section h2, .mission-section h3, .what-sets-us-apart-section h3, .visit-us-section h3, .contact-us-section h3 {
+    color: #333;
+  }
+  
+  .about-section p, .mission-section p, .what-sets-us-apart-section ul, .visit-us-section p, .contact-us-section p {
+    color: #555;
+  }
+  
+  .about-section p strong, .what-sets-us-apart-section ul strong, .visit-us-section p strong, .contact-us-section p strong {
+    color: #333;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  .list-unstyled {
+    list-style-type: none;
+  }
+  

@@ -1,0 +1,40 @@
+.book-card {
+    margin-bottom: 20px;
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .book-image-container {
+    width: 70%; /* Adjust based on your design */
+    max-height: auto; /* Adjust as needed */
+    overflow: hidden;
+    border-radius: 8px 0 0 8px; /* Rounded corners only on the left side */
+  }
+  
+  .book-image {
+    width: 100%;
+    height: 100%; /* Ensure the image takes full height of its container */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    border-radius: 8px 0 0 8px; /* In case the image container has rounded corners */
+  }
+  
+  .book-details {
+    padding: 10px;
+    width:90%; /* Adjust based on your design */
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
