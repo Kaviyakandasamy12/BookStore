@@ -1,8 +1,22 @@
 import React from 'react';
 import { Card, Col, Row, Button } from 'react-bootstrap';
 import './bookcard.css';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../controllers/UserContext';
 
 const BookCard = ({ image, price, name, author, description }) => {
+  const { user } = useUser();
+  const navigate = useNavigate();
+
+  const handleBuy = () => {
+    if (user) {
+      const book = { image, price, name, author, description };
+      navigate('/purchase', { state: { book } });
+    } else {
+      alert('Please log in to buy the book.');
+    }
+  };
+
   return (
     <Card className="book-card">
       <Row noGutters>
@@ -24,7 +38,7 @@ const BookCard = ({ image, price, name, author, description }) => {
               <strong>Description:</strong> {description}
             </Card.Text>
             <br/>
-            <Button variant="primary">Buy</Button>
+            <Button variant="primary" onClick={handleBuy}>Buy</Button>
           </Card.Body>
         </Col>
       </Row>

@@ -90,7 +90,6 @@ const Store = () => {
   return (
     <div className="store-page">
       <div className="container">
-        <h1 className="text-center mt-4 mb-5">Book Store</h1>
         <div className="d-flex flex-wrap justify-content-center">
           {books.map((book) => (
             <BookCard

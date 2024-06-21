@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "28cc",
+      "name": "kaviya",
+      "email": "kaviyakandamy26@gmail.com",
+      "password": "12345678",
+      "city": "Tirupur"
+    },
+    {
+      "id": "283d",
+      "name": "kaviya",
+      "email": "kaviyakandamy@gmail.com",
+      "password": "12345678",
+      "city": "Tirupur"
+    },
+    {
+      "id": "4170",
+      "name": "Mythili",
+      "email": "mythili@gmail.com",
+      "password": "12345678",
+      "city": "Erode"
+    },
+    {
+      "id": "b9c3",
+      "name": "Mani Prabha",
+      "email": "maniprabha@gmail.com",
+      "password": "12345678",
+      "city": "Erode"
+    },
+    {
+      "id": "d669",
+      "name": "Kaviya",
+      "email": "kaviyakandasamy26@gmail.com",
+      "password": "12345678",
+      "city": "Tirupur"
+    },
+    {
+      "id": "fa76",
+      "name": "Chandru",
+      "email": "chandru@gmail.com",
+      "password": "12345678",
+      "city": "Tirupur"
+    }
+  ]
+}

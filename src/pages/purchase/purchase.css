@@ -1,0 +1,24 @@
+/* src/components/purchase.css */
+.purchase-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }
+  
+  .book-details {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .book-details h3 {
+    margin-top: 0;
+  }
+  
+  .book-details p {
+    margin: 5px 0;
+  }
+  

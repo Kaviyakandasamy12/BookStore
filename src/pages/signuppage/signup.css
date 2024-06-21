@@ -1,6 +1,7 @@
 .signup-background {
     background-color: #f8f9fa; /* Light grey background */
-    height: 70vh;
+    height: auto;
+    padding-top: 70px;
     display: flex;
     align-items: center;
     justify-content: center;

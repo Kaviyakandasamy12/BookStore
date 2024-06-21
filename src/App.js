@@ -8,6 +8,7 @@ import Login from './pages/loginpage/Login';
 import Signup from './pages/signuppage/Signup';
 import Store from './pages/storepage/Store';
 import AboutUsPage from './pages/aboutus/AboutUsPage';
+import Purchase from './pages/purchase/Purchase';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/register" element={<Signup/>} />
             <Route path="/store" element={<Store/>} />
             <Route path="/aboutus" element={<AboutUsPage/>} />
+            <Route path='/purchase' element={<Purchase/>}/>
           </Routes>
         </main>
         <br/><br/><br/>

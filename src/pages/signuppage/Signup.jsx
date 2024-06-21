@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios';
 import './signup.css';
+import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [validated, setValidated] = useState(false);
+  const [name,setName] = useState("");
+  const [city,setCity] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
@@ -16,11 +21,29 @@ const Signup = () => {
       setValidated(true);
       return;
     }
-
-    // Add your signup logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+    // axios 
+    const response = await axios.get('http://localhost:3002/users');
+    const Existing = response.data;
+    const exists = Existing.some(person=>person.email===email);
+    if(exists){
+      alert("User already exists");
+      return;
+    }
+    const user = {name, email, password,city};
+    
+    await axios.post('http://localhost:3002/users', user)
+    .then(()=>{
+      alert("User registered successfully")
+      navigate('/login');
+    })
+    .catch((e)=>{console.log(e)});
+    console.log('User added:', user);
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setCity('');
+    
   };
 
   return (
@@ -42,6 +65,28 @@ const Signup = () => {
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid email.
                 </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group controlId="forName" className="mt-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group controlId="forCity" className="mt-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter city"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  required
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword" className="mt-3">
