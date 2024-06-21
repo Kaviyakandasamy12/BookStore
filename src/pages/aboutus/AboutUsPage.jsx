@@ -13,7 +13,7 @@ const AboutUsPage = () => {
           </p>
           <div className="text-center">
             <p>
-              At Book Haven, we believe in the transformative power of books. Founded in 20XX by passionate book lovers, our journey began with a simple mission: to connect readers with their next great read. Over the years, we've grown into a beloved community hub for book enthusiasts of all ages.
+              At Book Store, we believe in the transformative power of books. Founded in 2003 by passionate book lovers, our journey began with a simple mission: to connect readers with their next great read. Over the years, we've grown into a beloved community hub for book enthusiasts of all ages.
             </p>
           </div>
         </section>
@@ -42,10 +42,10 @@ const AboutUsPage = () => {
         <section className="visit-us-section mb-5">
           <h3 className="text-center mb-4">Visit Us</h3>
           <p className="lead text-center">
-            Explore our bookstore located in the heart of [City Name], where you can browse our shelves, attend book signings, and immerse yourself in a world of stories.
+            Explore our bookstore located in the heart of Tirupur, where you can browse our shelves, attend book signings, and immerse yourself in a world of stories.
           </p>
           <div className="text-center">
-            <p>Join us in celebrating the joy of reading and discover why Book Haven is more than just a bookstore – it's a haven for book lovers.</p>
+            <p>Join us in celebrating the joy of reading and discover why Book Store is more than just a bookstore – it's a haven for book lovers.</p>
           </div>
         </section>
 

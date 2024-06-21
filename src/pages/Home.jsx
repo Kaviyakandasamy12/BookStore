@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 const Home = () => {
   return (
-    <div style={{ paddingTop:'30px', width: '60%', margin: '0 auto' }}>
+    <div style={{ paddingTop:'100px', width: '70%', margin: '0 auto' }}>
       <Carousel>
         <Carousel.Item>
           <img
@@ -23,13 +23,6 @@ const Home = () => {
             className="d-block w-100"
             src="https://img.freepik.com/free-vector/flat-social-media-cover-template-world-book-day-celebration_23-2150201450.jpg"
             alt="Third slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/book-store-offer-video-flyer-ad-template-design-e7b81dedc5d5d5337a65a88cba309c88_screen.jpg?ts=1589738729"
-            alt="Fourth slide"
           />
         </Carousel.Item>
       </Carousel>
