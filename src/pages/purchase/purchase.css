@@ -21,4 +21,18 @@
   .book-details p {
     margin: 5px 0;
   }
+  /* src/components/purchase.css */
+.purchase-container {
+    margin-top: 50px;
+  }
+  
+  .book-details {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .book-image {
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
   
