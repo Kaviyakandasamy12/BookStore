@@ -4,50 +4,49 @@ import './login.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useUser } from '../../controllers/UserContext';
-const Login= () => {
-  const [name,setName] = useState('')
+
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [validated, setValidated] = useState(false);
+  const { setUser } = useUser();
   const navigate = useNavigate();
-  const {setUser} = useUser();
+
   const handleSubmit = async (event) => {
-    const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
 
+    const form = event.currentTarget;
     if (form.checkValidity() === false) {
       setValidated(true);
       return;
     }
 
     try {
-      // Fetch existing users to validate login
-      const response = await axios.get('http://localhost:3002/users');
-      const existingUsers = response.data;
-      const user = existingUsers.find(user => user.email === email && user.password === password);
+      const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
 
-      if (user) {
-        alert('Login successful');
-        setUser(name);
-        navigate('/');
-
-      } else {
-        alert('Invalid email or password');
+      if (response.status === 200) {
+        alert(response.data.message); // Show success message
+        setUser(response.data.user.name); // Set user in context
+        navigate('/'); // Navigate to home page after successful login
       }
-
     } catch (error) {
-      console.error('There was an error logging in!', error);
+      if (error.response && error.response.data && error.response.data.error) {
+        alert(error.response.data.error); // Show specific error message
+      } else {
+        alert('Login failed. Please try again later.');
+      }
+      console.error('Error logging in:', error);
     }
   };
-  
+
   return (
     <div className="signup-background">
       <Container className="signup-container mt-5">
         <Row className="justify-content-md-center">
           <Col md={6}>
             <h2>Login</h2>
-            <Form noValidate validated={validated} onSubmit={handleSubmit}  >
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
@@ -60,17 +59,6 @@ const Login= () => {
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid email.
                 </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword" className="mt-3">
@@ -87,8 +75,6 @@ const Login= () => {
                   Password must be at least 8 characters.
                 </Form.Control.Feedback>
               </Form.Group>
-
-              
 
               <Row className="justify-content-md-center">
                 <Col md={6} className="text-center">

@@ -3,13 +3,14 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import './signup.css';
 import { useNavigate } from 'react-router-dom';
+
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [validated, setValidated] = useState(false);
-  const [name,setName] = useState("");
-  const [city,setCity] = useState("");
+  const [name, setName] = useState('');
+  const [city, setCity] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -21,29 +22,28 @@ const Signup = () => {
       setValidated(true);
       return;
     }
-    // axios 
-    const response = await axios.get('http://localhost:3002/users');
-    const Existing = response.data;
-    const exists = Existing.some(person=>person.email===email);
-    if(exists){
-      alert("User already exists");
-      return;
+
+    const user = { name, email, password, city };
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/users/register', user);
+      alert(response.data.message); // Show success message
+      navigate('/login'); // Navigate to login page after successful registration
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.error) {
+        alert(error.response.data.error); // Show specific error message
+      } else {
+        alert('Registration failed. Please try again.');
+      }
+      // console.error('Error registering user:', error);
+      // alert('Registration failed. Please try again.');
     }
-    const user = {name, email, password,city};
-    
-    await axios.post('http://localhost:3002/users', user)
-    .then(()=>{
-      alert("User registered successfully")
-      navigate('/login');
-    })
-    .catch((e)=>{console.log(e)});
-    console.log('User added:', user);
+
     setName('');
     setEmail('');
     setPassword('');
     setConfirmPassword('');
     setCity('');
-    
   };
 
   return (
