@@ -35,6 +35,9 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link className="nav-link" to="/aboutus">About Us</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/reviews">Review</Link>
+              </li>
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {user ? (

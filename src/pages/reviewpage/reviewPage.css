@@ -1,0 +1,38 @@
+/* reviewPage.css */
+
+.reviews-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 45px;
+    background-color: #f9f9f9;
+  }
+  
+  .review-card {
+    /* border: 1px solid #007bff; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .review-card .card-body {
+    /* background-color: #e9ecef; */
+    border-radius: 5px;
+  }
+  
+  #review {
+    padding: 50px;
+    border-radius: 20px;
+  }
+  
+  #para {
+    color: #007bff;
+    font-weight: bold;
+  }
+  #button{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 800px;
+  }
+  
